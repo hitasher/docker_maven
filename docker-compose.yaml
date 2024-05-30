@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  maven:
+    image: maven:3.8.4-openjdk-17
+    container_name: maven-container
+    volumes:
+      - .:/app
+      - maven_repo:/root/.m2
+    working_dir: /app
+    command: mvn clean install
+
+volumes:
+  maven_repo:
